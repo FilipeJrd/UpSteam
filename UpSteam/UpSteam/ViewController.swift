@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private static let online_color : UIColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
-    private static let offline_color : UIColor = UIColor(red: 183/255, green: 60/255, blue: 49/255, alpha: 1.0)
+    fileprivate static let online_color : UIColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+    fileprivate static let offline_color : UIColor = UIColor(red: 183/255, green: 60/255, blue: 49/255, alpha: 1.0)
     @IBOutlet weak var gamesView: UIView!
     
     @IBOutlet weak var communityImage: UIImageView!
@@ -129,8 +129,10 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     override func viewDidAppear(_ animated: Bool) {
+        let provider = SteamGaugeServicesStateProvider(stateProcessor: self)
+        provider.getServicesState()
+        
         self.isDotaAPIOnline = true
         self.isUserAPIOnline = true
         self.isCSGCOnline = true
@@ -139,7 +141,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension ViewController: ServicesStateProcessor{
+    func isOnline(community: Bool, store: Bool, userAPI: Bool, csGameCoordinator: Bool, csAPI: Bool, dotaGameCoordinator: Bool, dotaAPI: Bool) {
+        self.isCommunityOnline = community
+        self.isStoreOnline = store
+        self.isUserAPIOnline = userAPI
+        self.isCSGCOnline = csGameCoordinator
+        self.isCSAPIOnline = csAPI
+        self.isDotaAPIOnline = dotaAPI
+        self.isDotaGCOnline = dotaGameCoordinator
+    }
 }
 
