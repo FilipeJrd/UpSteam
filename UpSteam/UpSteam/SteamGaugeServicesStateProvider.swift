@@ -15,7 +15,7 @@ class SteamGaugeServicesStateProvider: NSObject {
     init(stateProcessor : ServicesStateProcessor){
         self.stateProcessor = stateProcessor
         super.init()
-        let timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getServicesState), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getServicesState), userInfo: nil, repeats: true)
         timer.fire()
 
     }

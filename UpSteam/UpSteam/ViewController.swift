@@ -132,10 +132,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let provider = SteamGaugeServicesStateProvider(stateProcessor: self)
         provider.getServicesState()
-        
-        self.isDotaAPIOnline = true
-        self.isUserAPIOnline = true
-        self.isCSGCOnline = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
