@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 class GamesView: UIView {
-    @IBInspectable var cornerRadius : Float = 0.0 {
+    @IBInspectable override var cornerRadius : CGFloat {
         didSet{
             self.layer.masksToBounds = true
             self.layer.cornerRadius = (self.frame.width/100) * CGFloat(cornerRadius)

@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		878254AFEE37AD678D211C88 /* Pods_UpSteam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7204CEA8389996F775EF6710 /* Pods_UpSteam.framework */; };
+		1E292DA190777A12A636EB5A /* Pods_UpSteam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E18C63619B0B403836FB185 /* Pods_UpSteam.framework */; };
+		907F14371EA033DF006858AA /* GameStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F14361EA033DF006858AA /* GameStatusView.swift */; };
+		907F14391EA03C8D006858AA /* GameServicesStateProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907F14381EA03C8D006858AA /* GameServicesStateProcessor.swift */; };
 		90B7722F1DFB278000ABA357 /* ServicesStateProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7722E1DFB278000ABA357 /* ServicesStateProcessor.swift */; };
 		90B772311DFB282300ABA357 /* SteamGaugeServicesStateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B772301DFB282300ABA357 /* SteamGaugeServicesStateProvider.swift */; };
+		90F286321E71A1C8002B4892 /* SteamGaugeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F286311E71A1C8002B4892 /* SteamGaugeAPI.swift */; };
+		90F286351E72E599002B4892 /* GameStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F286341E72E599002B4892 /* GameStatusView.xib */; };
+		90F286391E72E850002B4892 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F286381E72E850002B4892 /* UIViewExtensions.swift */; };
 		90F373851DFB055A007763D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F373841DFB055A007763D7 /* AppDelegate.swift */; };
 		90F373871DFB055A007763D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F373861DFB055A007763D7 /* ViewController.swift */; };
 		90F3738A1DFB055A007763D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F373881DFB055A007763D7 /* Main.storyboard */; };
@@ -20,10 +25,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7204CEA8389996F775EF6710 /* Pods_UpSteam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpSteam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7266196440A3242AA802600A /* Pods-UpSteam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpSteam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam.debug.xcconfig"; sourceTree = "<group>"; };
+		2E18C63619B0B403836FB185 /* Pods_UpSteam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpSteam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB3A0368CACE245BC6EF346 /* Pods-UpSteam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpSteam.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam.release.xcconfig"; sourceTree = "<group>"; };
+		56900749EC3D5289E625FF78 /* Pods-UpSteam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpSteam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam.debug.xcconfig"; sourceTree = "<group>"; };
+		907F14361EA033DF006858AA /* GameStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatusView.swift; sourceTree = "<group>"; };
+		907F14381EA03C8D006858AA /* GameServicesStateProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameServicesStateProcessor.swift; sourceTree = "<group>"; };
 		90B7722E1DFB278000ABA357 /* ServicesStateProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesStateProcessor.swift; sourceTree = "<group>"; };
 		90B772301DFB282300ABA357 /* SteamGaugeServicesStateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGaugeServicesStateProvider.swift; sourceTree = "<group>"; };
+		90F286311E71A1C8002B4892 /* SteamGaugeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SteamGaugeAPI.swift; sourceTree = "<group>"; };
+		90F286341E72E599002B4892 /* GameStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameStatusView.xib; sourceTree = "<group>"; };
+		90F286381E72E850002B4892 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		90F373811DFB055A007763D7 /* UpSteam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpSteam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F373841DFB055A007763D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90F373861DFB055A007763D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +44,6 @@
 		90F373911DFB055A007763D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90F373931DFB055A007763D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90F373991DFB145C007763D7 /* GamesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
-		F49F275D18FEAB18D9785D42 /* Pods-UpSteam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpSteam.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,20 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				878254AFEE37AD678D211C88 /* Pods_UpSteam.framework in Frameworks */,
+				1E292DA190777A12A636EB5A /* Pods_UpSteam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90F286301E71A138002B4892 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				90F286311E71A1C8002B4892 /* SteamGaugeAPI.swift */,
+			);
+			name = DataLayer;
+			sourceTree = "<group>";
+		};
+		90F286331E72E580002B4892 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				907F14361EA033DF006858AA /* GameStatusView.swift */,
+				90F286341E72E599002B4892 /* GameStatusView.xib */,
+				90F286381E72E850002B4892 /* UIViewExtensions.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		90F373781DFB055A007763D7 = {
 			isa = PBXGroup;
 			children = (
 				90F373831DFB055A007763D7 /* UpSteam */,
 				90F373821DFB055A007763D7 /* Products */,
-				A2375D9CBB1534DA1A05055F /* Pods */,
-				F806ECDD32514C7DD8B6E4B4 /* Frameworks */,
+				E88EA11A584071E9C13D9C44 /* Pods */,
+				FCFC92219337E0D287E3334C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +97,8 @@
 		90F373831DFB055A007763D7 /* UpSteam */ = {
 			isa = PBXGroup;
 			children = (
+				90F286331E72E580002B4892 /* Views */,
+				90F286301E71A138002B4892 /* DataLayer */,
 				90F373841DFB055A007763D7 /* AppDelegate.swift */,
 				90F373861DFB055A007763D7 /* ViewController.swift */,
 				90F373881DFB055A007763D7 /* Main.storyboard */,
@@ -79,23 +109,24 @@
 				90F373991DFB145C007763D7 /* GamesView.swift */,
 				90B7722E1DFB278000ABA357 /* ServicesStateProcessor.swift */,
 				90B772301DFB282300ABA357 /* SteamGaugeServicesStateProvider.swift */,
+				907F14381EA03C8D006858AA /* GameServicesStateProcessor.swift */,
 			);
 			path = UpSteam;
 			sourceTree = "<group>";
 		};
-		A2375D9CBB1534DA1A05055F /* Pods */ = {
+		E88EA11A584071E9C13D9C44 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7266196440A3242AA802600A /* Pods-UpSteam.debug.xcconfig */,
-				F49F275D18FEAB18D9785D42 /* Pods-UpSteam.release.xcconfig */,
+				56900749EC3D5289E625FF78 /* Pods-UpSteam.debug.xcconfig */,
+				4BB3A0368CACE245BC6EF346 /* Pods-UpSteam.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F806ECDD32514C7DD8B6E4B4 /* Frameworks */ = {
+		FCFC92219337E0D287E3334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7204CEA8389996F775EF6710 /* Pods_UpSteam.framework */,
+				2E18C63619B0B403836FB185 /* Pods_UpSteam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,12 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90F373961DFB055A007763D7 /* Build configuration list for PBXNativeTarget "UpSteam" */;
 			buildPhases = (
-				9053A9642484600338F43444 /* [CP] Check Pods Manifest.lock */,
+				F37952D1CB79BA7BF24D2887 /* [CP] Check Pods Manifest.lock */,
 				90F3737D1DFB055A007763D7 /* Sources */,
 				90F3737E1DFB055A007763D7 /* Frameworks */,
 				90F3737F1DFB055A007763D7 /* Resources */,
-				2664701A3C52708C7CFFCC8D /* [CP] Embed Pods Frameworks */,
-				8877B3AE0AD05E09516DE612 /* [CP] Copy Pods Resources */,
+				39CA7D7FB7D96D51E0C5B904 /* [CP] Embed Pods Frameworks */,
+				C0C1EDC41DAB8FDE30D30332 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,6 +197,7 @@
 			files = (
 				90F373921DFB055A007763D7 /* LaunchScreen.storyboard in Resources */,
 				90F3738F1DFB055A007763D7 /* Assets.xcassets in Resources */,
+				90F286351E72E599002B4892 /* GameStatusView.xib in Resources */,
 				90F3738A1DFB055A007763D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +205,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2664701A3C52708C7CFFCC8D /* [CP] Embed Pods Frameworks */ = {
+		39CA7D7FB7D96D51E0C5B904 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -188,7 +220,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8877B3AE0AD05E09516DE612 /* [CP] Copy Pods Resources */ = {
+		C0C1EDC41DAB8FDE30D30332 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,7 +235,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpSteam/Pods-UpSteam-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9053A9642484600338F43444 /* [CP] Check Pods Manifest.lock */ = {
+		F37952D1CB79BA7BF24D2887 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -215,7 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -225,11 +257,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907F14391EA03C8D006858AA /* GameServicesStateProcessor.swift in Sources */,
+				907F14371EA033DF006858AA /* GameStatusView.swift in Sources */,
 				90F373871DFB055A007763D7 /* ViewController.swift in Sources */,
 				90F373851DFB055A007763D7 /* AppDelegate.swift in Sources */,
+				90F286321E71A1C8002B4892 /* SteamGaugeAPI.swift in Sources */,
 				90B7722F1DFB278000ABA357 /* ServicesStateProcessor.swift in Sources */,
 				90F3739A1DFB145C007763D7 /* GamesView.swift in Sources */,
 				90F3738D1DFB055A007763D7 /* UpSteam.xcdatamodeld in Sources */,
+				90F286391E72E850002B4892 /* UIViewExtensions.swift in Sources */,
 				90B772311DFB282300ABA357 /* SteamGaugeServicesStateProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,29 +387,33 @@
 		};
 		90F373971DFB055A007763D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7266196440A3242AA802600A /* Pods-UpSteam.debug.xcconfig */;
+			baseConfigurationReference = 56900749EC3D5289E625FF78 /* Pods-UpSteam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R9WHX95423;
 				INFOPLIST_FILE = UpSteam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.filipejrd.UpSteam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		90F373981DFB055A007763D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F49F275D18FEAB18D9785D42 /* Pods-UpSteam.release.xcconfig */;
+			baseConfigurationReference = 4BB3A0368CACE245BC6EF346 /* Pods-UpSteam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R9WHX95423;
 				INFOPLIST_FILE = UpSteam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.filipejrd.UpSteam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

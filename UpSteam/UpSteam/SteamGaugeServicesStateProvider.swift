@@ -21,11 +21,13 @@ class SteamGaugeServicesStateProvider: NSObject {
     }
     
     func getServicesState(){
-        Alamofire.request("http://steamgaug.es/api/v2").responseJSON(completionHandler: {
-            response in
+        SteamGaugeProvider.request(.status){
+            result in
+            let response = result.value!
+    
             
-            if let JSON : [String:Any] = try? JSONSerialization.jsonObject(with: response.data!, options:[]) as! [String: Any]{
-                
+            if let JSON : [String:Any] = try? JSONSerialization.jsonObject(with: response.data, options:[]) as! [String: Any]{
+                let client = ((JSON["ISteamClient"] as! [String:Any])["online"] as! Int) == 1
                 let store = ((JSON["SteamStore"] as! [String:Any])["online"] as! Int) == 1
                 let community = ((JSON["SteamCommunity"] as! [String:Any])["online"] as! Int) == 1
                 let user = ((JSON["ISteamUser"] as! [String:Any])["online"] as! Int) == 1
@@ -34,6 +36,7 @@ class SteamGaugeServicesStateProvider: NSObject {
                 
                 let dotaApi = ((gameApi["570"] as! [String:Any])["online"] as! Int) == 1
                 let csApi = ((gameApi["730"] as! [String:Any])["online"] as! Int) == 1
+                let tfApi = ((gameApi["440"] as! [String:Any])["online"] as! Int) == 1
                 
                 let gameCoordinator = JSON["ISteamGameCoordinator"] as! [String:Any]
                 
@@ -41,13 +44,13 @@ class SteamGaugeServicesStateProvider: NSObject {
                 
                 let csGC = ((gameCoordinator["730"] as! [String:Any])["online"] as! Int) == 1
                 
+                let tfGC = ((gameCoordinator["440"] as! [String:Any])["online"] as! Int) == 1
                 
                 
-                self.stateProcessor.isOnline(community: community, store: store, userAPI: user, csGameCoordinator: csGC, csAPI: csApi, dotaGameCoordinator: dotaGC, dotaAPI: dotaApi)
+                self.stateProcessor.isOnline(client: client, community: community, store: store, userAPI: user, csGameCoordinator: csGC, csAPI: csApi, dotaGameCoordinator: dotaGC, dotaAPI: dotaApi, tfGameCoordinator: tfGC, tfAPI: tfApi)
 
             }
-        })
+        }
     }
-    
 }
 

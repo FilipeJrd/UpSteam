@@ -8,5 +8,5 @@
 
 import Foundation
 protocol ServicesStateProcessor {
-    func isOnline(community: Bool, store: Bool, userAPI: Bool, csGameCoordinator: Bool, csAPI: Bool, dotaGameCoordinator: Bool, dotaAPI: Bool)
+    func isOnline(client: Bool, community: Bool, store: Bool, userAPI: Bool, csGameCoordinator: Bool, csAPI: Bool, dotaGameCoordinator: Bool, dotaAPI: Bool, tfGameCoordinator: Bool, tfAPI: Bool)
 }

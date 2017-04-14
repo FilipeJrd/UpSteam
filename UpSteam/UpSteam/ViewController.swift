@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import iCarousel
 
 class ViewController: UIViewController {
     
     fileprivate static let online_color : UIColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
     fileprivate static let offline_color : UIColor = UIColor(red: 183/255, green: 60/255, blue: 49/255, alpha: 1.0)
-    @IBOutlet weak var gamesView: UIView!
     
+    
+    @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var communityImage: UIImageView!
     @IBOutlet weak var userApiImage: UIImageView!
     @IBOutlet weak var storeImage: UIImageView!
@@ -22,18 +24,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var userApiLabel: UILabel!
     @IBOutlet weak var storeLabel: UILabel!
     
-    @IBOutlet weak var csGameCoordinatorImage: UIImageView!
-    @IBOutlet weak var csAPIImage: UIImageView!
-
-    @IBOutlet weak var csGameCoordinatorLabel: UILabel!
-    @IBOutlet weak var csAPILabel: UILabel!
+    @IBOutlet weak var carousel: iCarousel!
     
+    var dotaServicesProcessor : GameServicesStateProcessor?
+    var csServicesProcessor : GameServicesStateProcessor?
+    var tfServicesProcessor : GameServicesStateProcessor?
     
-    @IBOutlet weak var dotaGameCoordinatorImage: UIImageView!
-    @IBOutlet weak var dotaAPIImage: UIImageView!
-    
-    @IBOutlet weak var dotaGameCoordinatorLabel: UILabel!
-    @IBOutlet weak var dotaAPILabel: UILabel!
     
     var isCommunityOnline : Bool = false{
         didSet{
@@ -73,60 +69,24 @@ class ViewController: UIViewController {
         }
     }
     
-    var isCSGCOnline : Bool = false{
+    var isSteamClientOnline: Bool = false{
         didSet{
-            if isCSGCOnline{
-                self.csGameCoordinatorImage.image = #imageLiteral(resourceName: "Online")
-                self.csGameCoordinatorLabel.textColor = ViewController.online_color
+            self.clientLabel.text = "Steam is \(isSteamClientOnline ? "Online" : "Offline")"
+            if isSteamClientOnline{
+                self.clientLabel.textColor = ViewController.online_color
             }else{
-                self.csGameCoordinatorImage.image = #imageLiteral(resourceName: "Offline")
-                self.csGameCoordinatorLabel.textColor = ViewController.offline_color
+                self.clientLabel.textColor = ViewController.offline_color
             }
-        }
-    }
-    
-    
-    var isDotaGCOnline : Bool = false{
-        didSet{
-            if isDotaGCOnline{
-                self.dotaGameCoordinatorImage.image = #imageLiteral(resourceName: "Online")
-                self.dotaGameCoordinatorLabel.textColor = ViewController.online_color
-            }else{
-                self.dotaGameCoordinatorImage.image = #imageLiteral(resourceName: "Offline")
-                self.dotaGameCoordinatorLabel.textColor = ViewController.offline_color
-            }
-        }
-    }
-    
-    
-    var isCSAPIOnline : Bool = false{
-        didSet{
-            if isCSAPIOnline{
-                self.csAPIImage.image = #imageLiteral(resourceName: "Online")
-                self.csAPILabel.textColor = ViewController.online_color
-            }else{
-                self.csAPIImage.image = #imageLiteral(resourceName: "Offline")
-                self.csAPILabel.textColor = ViewController.offline_color
-            }
-        }
-    }
-    
-    
-    var isDotaAPIOnline : Bool = false{
-        didSet{
-            if isDotaAPIOnline{
-                self.dotaAPIImage.image = #imageLiteral(resourceName: "Online")
-                self.dotaAPILabel.textColor = ViewController.online_color
-            }else{
-                self.dotaAPIImage.image = #imageLiteral(resourceName: "Offline")
-                self.dotaAPILabel.textColor = ViewController.offline_color
-            }
+
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.carousel.type = .linear
+        self.carousel.delegate = self
+        self.carousel.dataSource = self
+        self.carousel.decelerationRate = 0.1
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -140,14 +100,58 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ServicesStateProcessor{
-    func isOnline(community: Bool, store: Bool, userAPI: Bool, csGameCoordinator: Bool, csAPI: Bool, dotaGameCoordinator: Bool, dotaAPI: Bool) {
+    
+    func isOnline(client: Bool, community: Bool, store: Bool, userAPI: Bool, csGameCoordinator: Bool, csAPI: Bool, dotaGameCoordinator: Bool, dotaAPI: Bool, tfGameCoordinator: Bool, tfAPI: Bool) {
+        self.isSteamClientOnline = client
         self.isCommunityOnline = community
         self.isStoreOnline = store
         self.isUserAPIOnline = userAPI
-        self.isCSGCOnline = csGameCoordinator
-        self.isCSAPIOnline = csAPI
-        self.isDotaAPIOnline = dotaAPI
-        self.isDotaGCOnline = dotaGameCoordinator
+        self.dotaServicesProcessor?.isOnline(gc: dotaGameCoordinator, api: dotaAPI)
+        self.csServicesProcessor?.isOnline(gc: csGameCoordinator, api: csAPI)
+        self.tfServicesProcessor?.isOnline(gc: tfGameCoordinator, api: tfAPI)
+
+    }
+}
+
+
+
+extension ViewController: iCarouselDelegate, iCarouselDataSource{
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return 3
+    }
+
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let view = GameStatusView(frame: CGRect(x: 0, y: 0, width: self.carousel.frame.width*0.8, height: self.carousel.frame.height))
+        view.gameName = index == 0 ? "DOTA" : "CS:GO"
+        
+        view.cornerRadius = view.frame.width/10
+        view.backgroundColor = UIColor.blue
+        
+        switch index {
+        case 0:
+            view.gameName = "DOTA"
+            self.dotaServicesProcessor = view
+            
+        case 1:
+            view.gameName = "CS:GO"
+            self.csServicesProcessor = view
+            
+        case 2:
+            view.gameName = "TF2"
+            self.tfServicesProcessor = view
+        default:
+            print("wut")
+        }
+        
+        return view
+    }
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        switch option {
+        case .spacing:
+            return 1.05
+        default:
+            return value
+        }
     }
 }
 
